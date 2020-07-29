@@ -11,7 +11,19 @@ export default function ApplicationViews() {
         <main>
             <Switch>
                 <Route path="/" exact>
-                    {isLoggedIn ? <p>Hello</p> : <Redirect to="/login" />}
+                    {isLoggedIn ? <p>Welcome to MyPantry</p> : <Redirect to="/login" />}
+                </Route>
+
+                <Route path="/recipes" exact>
+                    {isLoggedIn ? <p>Hello recipes</p> : <Redirect to="/login" />}
+                </Route>
+
+                <Route path="/mypantry" exact>
+                    {isLoggedIn ? <p>Hello pantry</p> : <Redirect to="/login" />}
+                </Route>
+
+                <Route path="/profiles" exact>
+                    {isLoggedIn ? <p>Hello profiles</p> : <Redirect to="/login" />}
                 </Route>
 
                 <Route path="/login">

@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace MyPantry.Repositories
 {
-    public class FoodRepository
+    public class CategoryRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public FoodRepository(ApplicationDbContext context)
+        public CategoryRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public List<Food> GetAll()
+        public List<Category> GetAll()
         {
-            return _context.Food.OrderBy(c => c.Name).ToList();
+            return _context.Category.OrderBy(c => c.Name).ToList();
         }
 
-        public Food GetById(int id)
+        public Category GetById(int id)
         {
-            return _context.Food.FirstOrDefault(c => c.Id == id);
+            return _context.Category.FirstOrDefault(c => c.Id == id);
         }
     }
 }
