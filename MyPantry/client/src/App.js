@@ -4,14 +4,17 @@ import logo from './logo.svg';
 import { UserProfileProvider } from './providers/UserProfileProvider';
 import ApplicationViews from './components/ApplicationViews';
 import Header from './components/Header';
+import { RecipeProvider } from './providers/RecipeProvider';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <UserProfileProvider>
-          <Header />
-          <ApplicationViews />
+          <RecipeProvider >
+            <Header />
+            <ApplicationViews />
+          </RecipeProvider>
         </UserProfileProvider>
       </Router>
 

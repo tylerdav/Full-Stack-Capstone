@@ -20,24 +20,24 @@ namespace MyPantry.Repositories
         public List<Recipe> GetAll()
         {
             return _context.Recipe
-                .Include(p => p.UserProfile)
-                .Include(p => p.Category)
+                .Include(r => r.UserProfile)
+                .Include(r => r.Category)
                 .ToList();
 
         }
 
         public Recipe GetById(int id)
         {
-            return _context.Recipe.Include(p => p.UserProfile)
-                                .Include(p => p.Category)
-                                .FirstOrDefault(p => p.Id == id);
+            return _context.Recipe.Include(r => r.UserProfile)
+                                .Include(r => r.Category)
+                                .FirstOrDefault(r => r.Id == id);
         }
 
         public List<Recipe> GetByUserProfileId(int id)
         {
-            return _context.Recipe.Include(p => p.UserProfile)
-                            .Include(p => p.Category)
-                            .Where(p => p.UserProfileId == id)
+            return _context.Recipe.Include(r => r.UserProfile)
+                            .Include(r => r.Category)
+                            .Where(r => r.UserProfileId == id)
                             .ToList();
         }
 
@@ -59,22 +59,5 @@ namespace MyPantry.Repositories
             _context.Recipe.Remove(post);
             _context.SaveChanges();
         }
-        //public PostTag GetPostTagById(int id)
-        //{
-        //    return _context.PostTag
-        //                   .FirstOrDefault(pt => pt.Id == id);
-        //}
-        //public void InsertTag(PostTag postTag)
-        //{
-        //    _context.PostTag.Add(postTag);
-        //    _context.SaveChanges();
-        //}
-
-        //public void RemoveTag(int id)
-        //{
-        //    var postTag = GetPostTagById(id);
-        //    _context.PostTag.Remove(postTag);
-        //    _context.SaveChanges();
-        //}
     }
 }

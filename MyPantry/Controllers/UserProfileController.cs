@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -22,7 +23,7 @@ namespace MyPantry.Controllers
             _userProfileRepository = new UserProfileRepository(context);
         }
 
-        [HttpGet("{firebaseUserId}")]
+        [HttpGet("fbu/{firebaseUserId}")]
         public IActionResult GetByFirebaseUserId(string firebaseUserId)
         {
             var userProfile = _userProfileRepository.GetByFirebaseUserId(firebaseUserId);
@@ -39,6 +40,27 @@ namespace MyPantry.Controllers
             _userProfileRepository.Add(userProfile);
             return CreatedAtAction(
                 nameof(GetByFirebaseUserId), new { firebaseUserId = userProfile.FirebaseUserId }, userProfile);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+
+            var userProfile = GetCurrentUserProfile();
+            if (userProfile == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(_userProfileRepository.GetById(id));
+            }
+        }
+
+        private UserProfile GetCurrentUserProfile()
+        {
+            var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return _userProfileRepository.GetByFirebaseUserId(firebaseUserId);
         }
     }
 }
