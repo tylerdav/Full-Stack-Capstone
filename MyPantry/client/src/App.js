@@ -5,6 +5,9 @@ import { UserProfileProvider } from './providers/UserProfileProvider';
 import ApplicationViews from './components/ApplicationViews';
 import Header from './components/Header';
 import { RecipeProvider } from './providers/RecipeProvider';
+import { UserRecipeProvider } from './providers/UserRecipeProvider';
+import { FoodPantryProvider } from './providers/FoodPantryProvider';
+import { FoodProvider } from './providers/FoodProvider';
 
 function App() {
   return (
@@ -12,8 +15,14 @@ function App() {
       <Router>
         <UserProfileProvider>
           <RecipeProvider >
-            <Header />
-            <ApplicationViews />
+            <UserRecipeProvider>
+              <FoodProvider>
+                <FoodPantryProvider>
+                  <Header />
+                  <ApplicationViews />
+                </FoodPantryProvider>
+              </FoodProvider>
+            </UserRecipeProvider>
           </RecipeProvider>
         </UserProfileProvider>
       </Router>

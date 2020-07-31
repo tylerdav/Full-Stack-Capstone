@@ -51,9 +51,13 @@ namespace MyPantry.Controllers
             {
                 return NotFound();
             }
-            else
+            else if(userProfile.Id == id) 
             {
                 return Ok(_userProfileRepository.GetById(id));
+            }
+            else
+            {
+                return Unauthorized();
             }
         }
 

@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { UserProfileContext } from "./UserProfileProvider";
 
-export const CommentContext = React.createContext();
+export const FoodContext = React.createContext();
 
-export const CommentProvider = (props) => {
+export const FoodProvider = (props) => {
     const { getToken } = useContext(UserProfileContext)
-    const [comments, setComments] = useState([]);
+    const [foods, setFoods] = useState([]);
 
     const apiUrl = '/api/food'
 
@@ -44,20 +44,20 @@ export const CommentProvider = (props) => {
 
     const deleteFood = (food) => {
         return getToken().then((token) =>
-            fetch(apiUrl + `/${comment.id}`, {
+            fetch(apiUrl + `/${food.id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json"
                 },
-            })).then(() => getCommentsByPostId(comment.postId))
+            })).then(() => getFoodsByUserProfileId(food.postId))
     };
 
     return (
-        <CommentContext.Provider value={{
-            comments, getCommentsByPostId, getComment, addComment, updateComment, deleteComment
+        <FoodContext.Provider value={{
+            foods, getFoodsByUserProfileId, getFood, addFood, deleteFood,
         }}>
             {props.children}
-        </CommentContext.Provider>
+        </FoodContext.Provider>
     );
 };

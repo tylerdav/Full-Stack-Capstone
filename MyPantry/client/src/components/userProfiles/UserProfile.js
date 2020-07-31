@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from 'react'
 import { Card, CardImg, CardBody } from "reactstrap";
 import { useParams, Link } from 'react-router-dom'
 import { UserProfileContext } from '../../providers/UserProfileProvider';
+import { UserRecipeList } from '../recipes/UserRecipeList';
 
 const UserProfile = () => {
     const [userProfile, setUserProfiles] = useState()
@@ -30,6 +31,10 @@ const UserProfile = () => {
                                 <h3>UserName:  {userProfile.displayName}</h3>
                                 <h3>Email:  {userProfile.email}</h3>
                             </CardBody>
+                            <br />
+                            <div>
+                                <UserRecipeList />
+                            </div>
                         </section>
                     </Card>
                 </div>
