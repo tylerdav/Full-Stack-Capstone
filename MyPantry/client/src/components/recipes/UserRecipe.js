@@ -3,6 +3,7 @@ import { Card, CardImg, CardBody, ModalHeader, ModalBody, Modal, Button } from "
 import { Link } from "react-router-dom";
 import { EditRecipeForm } from "./EditRecipeForm";
 import { UserRecipeContext } from "../../providers/UserRecipeProvider";
+import { RecipeFoodList } from "../recipeFood/RecipeFoodList";
 
 export const UserRecipe = ({ recipe }) => {
     const { deleteRecipe } = useContext(UserRecipeContext);
@@ -24,6 +25,9 @@ export const UserRecipe = ({ recipe }) => {
                     <div>
                         <p>{recipe.content}</p>
                         <p>Category: {recipe.category.name}</p>
+                        <div>
+                            <RecipeFoodList recipeId={recipe.id} />
+                        </div>
                         <p>Posted by: {recipe.userProfile.displayName}</p>
                     </div>
                 </div>

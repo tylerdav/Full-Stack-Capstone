@@ -6,6 +6,7 @@ import Register from "./Register";
 import UserProfile from "./userProfiles/UserProfile";
 import { RecipeList } from "./recipes/RecipeList";
 import { FoodPantryList } from "./foodPantry/FoodPantryList";
+import RecipeForm from "./recipes/RecipeForm";
 
 export default function ApplicationViews() {
     const { isLoggedIn } = useContext(UserProfileContext);
@@ -27,6 +28,10 @@ export default function ApplicationViews() {
 
                 <Route path="/profiles/:Id" exact>
                     {isLoggedIn ? <UserProfile /> : <Redirect to="/login" />}
+                </Route>
+
+                <Route path="/recipeform" exact>
+                    {isLoggedIn ? <RecipeForm /> : <Redirect to="/profiles/:Id" />}
                 </Route>
 
                 <Route path="/login">
