@@ -10,7 +10,7 @@ export const FoodPantryList = () => {
     useEffect(() => {
         getFoodPantryByUserProfileId()
     }, []);
-    debugger
+
     return (
         <div className="container">
             <Card className="m-4 recipe">

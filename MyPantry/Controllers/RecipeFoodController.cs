@@ -39,7 +39,7 @@ namespace MyPantry.Controllers
             return Ok(recipeFood);
         }
 
-        [HttpGet("Recipe/{id}")]
+        [HttpGet("recipe/{id}")]
         public IActionResult GetByRecipe(int id)
         {
             var recipeFood = _recipeFoodRepository.GetRecipeFoodByRecipeId(id);

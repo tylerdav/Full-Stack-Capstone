@@ -8,6 +8,7 @@ import { RecipeProvider } from './providers/RecipeProvider';
 import { UserRecipeProvider } from './providers/UserRecipeProvider';
 import { FoodPantryProvider } from './providers/FoodPantryProvider';
 import { FoodProvider } from './providers/FoodProvider';
+import { RecipeFoodProvider } from './providers/RecipeFoodProvider';
 
 function App() {
   return (
@@ -17,10 +18,12 @@ function App() {
           <RecipeProvider >
             <UserRecipeProvider>
               <FoodProvider>
-                <FoodPantryProvider>
-                  <Header />
-                  <ApplicationViews />
-                </FoodPantryProvider>
+                <RecipeFoodProvider>
+                  <FoodPantryProvider>
+                    <Header />
+                    <ApplicationViews />
+                  </FoodPantryProvider>
+                </RecipeFoodProvider>
               </FoodProvider>
             </UserRecipeProvider>
           </RecipeProvider>

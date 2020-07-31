@@ -21,13 +21,15 @@ namespace MyPantry.Repositories
         {
             return _context.RecipeFood
                 .Include(recipeFood => recipeFood.Recipe)
-                .ThenInclude(recipe => recipe.Category)
+                .Include(recipeFood => recipeFood.Food)
                 .Include(recipeFood => recipeFood.Food).ToList();
         }
 
         public RecipeFood GetByRecipeFoodId(int id)
         {
             return _context.RecipeFood
+                .Include(recipeFood => recipeFood.Recipe)
+                .Include(recipeFood => recipeFood.Food)
                 .FirstOrDefault(recipeFood => recipeFood.Id == id);
         }
 
@@ -35,7 +37,6 @@ namespace MyPantry.Repositories
         {
             return _context.RecipeFood
                 .Include(recipeFood => recipeFood.Recipe)
-                .ThenInclude(recipe => recipe.Category)
                 .Include(recipeFood => recipeFood.Food)
                 .Where(recipeFood => recipeFood.RecipeId == id)
                 .ToList();

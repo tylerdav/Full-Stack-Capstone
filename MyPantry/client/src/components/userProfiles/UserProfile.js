@@ -32,6 +32,7 @@ const UserProfile = () => {
                                 <h3>Email:  {userProfile.email}</h3>
                             </CardBody>
                             <br />
+                            <br />
                             <div>
                                 <UserRecipeList />
                             </div>

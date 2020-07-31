@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardImg, CardBody } from "reactstrap";
+import { RecipeFoodList } from "../recipeFood/RecipeFoodList";
 
 export const Recipe = ({ recipe }) => {
     return (
@@ -10,6 +11,9 @@ export const Recipe = ({ recipe }) => {
                 <div className="recipeItems">
                     <p>{recipe.content}</p>
                     <p>Category: {recipe.category.name}</p>
+                    <div>
+                        <RecipeFoodList recipeId={recipe.id} />
+                    </div>
                     <p>Posted by: {recipe.userProfile.displayName}</p>
                 </div>
             </CardBody>

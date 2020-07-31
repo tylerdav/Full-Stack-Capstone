@@ -23,7 +23,7 @@ export function RecipeFoodProvider(props) {
 
     const getRecipeFoodByRecipeId = (id) => {
         return getToken().then((token) =>
-            fetch(`/api/recipefood/recipe/${id}`, {
+            fetch(apiUrl + `recipe/${id}`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`
