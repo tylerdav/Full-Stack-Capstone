@@ -9,8 +9,8 @@ export const Recipe = ({ recipe }) => {
                 <h3>{recipe.title}</h3>
                 <div className="recipeItems">
                     <p>{recipe.content}</p>
-                    <p>Posted by: {recipe.userProfile.displayName}</p>
                     <p>Category: {recipe.category.name}</p>
+                    <p>Posted by: {recipe.userProfile.displayName}</p>
                 </div>
             </CardBody>
         </Card>

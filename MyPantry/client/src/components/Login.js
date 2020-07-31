@@ -19,7 +19,7 @@ export default function Login() {
 
     return (
         <Form onSubmit={loginSubmit}>
-            <fieldset>
+            <fieldset className="login_box">
                 <FormGroup>
                     <Label for="email">Email</Label>
                     <Input id="email" type="text" onChange={e => setEmail(e.target.value)} />

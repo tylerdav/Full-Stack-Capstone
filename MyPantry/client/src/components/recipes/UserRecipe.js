@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Card, CardImg, CardBody, ModalHeader, ModalBody, Modal, Button } from "reactstrap";
 import { Link } from "react-router-dom";
-import { EditPostForm } from "./EditPostForm";
+import { EditRecipeForm } from "./EditRecipeForm";
 import { UserRecipeContext } from "../../providers/UserRecipeProvider";
 
 export const UserRecipe = ({ recipe }) => {
@@ -18,16 +18,16 @@ export const UserRecipe = ({ recipe }) => {
             <CardImg top src={recipe.imageLocation} />
             <CardBody>
                 <div className="userRecipeTitle">
-                    <Link to={`/recipes/${recipe.id}`}>
-                        <h3>{recipe.title}</h3>
-                    </Link>
+                    <h3>{recipe.title}</h3>
                 </div>
                 <div className="userRecipeItems">
                     <div>
-                        Category: <br />
-                        {recipe.category.name} <br /><br />
+                        <p>{recipe.content}</p>
+                        <p>Category: {recipe.category.name}</p>
+                        <p>Posted by: {recipe.userProfile.displayName}</p>
                     </div>
                 </div>
+                <br />
                 <div className="userRecipeBtns">
                     <div><Button color="danger" onClick={toggle}>Delete</Button>
                         <Modal isOpen={modal} toggle={toggle}>

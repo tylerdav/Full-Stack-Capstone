@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.login_box, .register_box{
+  margin-top: 50px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border: solid 2px grey;
+  border-radius: 10px;
+  padding: 20px;
+  color: black;
+  max-width: 40%;
+}

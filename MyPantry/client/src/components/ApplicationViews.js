@@ -5,6 +5,7 @@ import Login from "./Login";
 import Register from "./Register";
 import UserProfile from "./userProfiles/UserProfile";
 import { RecipeList } from "./recipes/RecipeList";
+import { FoodPantryList } from "./foodPantry/FoodPantryList";
 
 export default function ApplicationViews() {
     const { isLoggedIn } = useContext(UserProfileContext);
@@ -21,7 +22,7 @@ export default function ApplicationViews() {
                 </Route>
 
                 <Route path="/mypantry" exact>
-                    {isLoggedIn ? <p>Hello pantry</p> : <Redirect to="/login" />}
+                    {isLoggedIn ? <FoodPantryList /> : <Redirect to="/recipes" />}
                 </Route>
 
                 <Route path="/profiles/:Id" exact>

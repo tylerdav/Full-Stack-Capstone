@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,12 @@ namespace MyPantry.Controllers
     public class FoodPantryController : ControllerBase
     {
         private readonly FoodPantryRepository _foodPantryRepository;
+        private readonly UserProfileRepository _userProfileRepository;
 
         public FoodPantryController(ApplicationDbContext context)
         {
             _foodPantryRepository = new FoodPantryRepository(context);
+            _userProfileRepository = new UserProfileRepository(context);
         }
 
         [HttpGet]
@@ -38,10 +41,11 @@ namespace MyPantry.Controllers
             return Ok(foodPantry);
         }
 
-        [HttpGet("Recipe/{id}")]
-        public IActionResult GetByUserProfile(int id)
+        [HttpGet("mypantry")]
+        public IActionResult GetByUserProfile()
         {
-            var foodPantry = _foodPantryRepository.GetFoodPantryByUserProfileId(id);
+            var userProfile = GetCurrentUserProfile();
+            var foodPantry = _foodPantryRepository.GetFoodPantryByUserProfileId(userProfile.Id);
             if (foodPantry != null)
             {
                 NotFound();
@@ -68,6 +72,12 @@ namespace MyPantry.Controllers
         {
             _foodPantryRepository.Delete(id);
             return NoContent();
+        }
+
+        private UserProfile GetCurrentUserProfile()
+        {
+            var firebaseUserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return _userProfileRepository.GetByFirebaseUserId(firebaseUserId);
         }
     }
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { UserRecipe } from "./UserRecipe";
-import { UserRecipeContext } from "../providers/UserRecipeProvider";
+import { UserRecipeContext } from "../../providers/UserRecipeProvider";
 
 export const UserRecipeList = () => {
 

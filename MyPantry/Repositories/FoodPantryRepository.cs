@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyPantry.Data;
 using MyPantry.Models;
 using System;
@@ -20,22 +21,22 @@ namespace MyPantry.Repositories
         public List<FoodPantry> GetAll()
         {
             return _context.FoodPantry
-                .Include(fp => fp.UserProfileId)
-                .Include(fp => fp.Food).ToList();
+                .Include(fp => fp.Food)
+                .ToList();
         }
 
         public FoodPantry GetByFoodPantryId(int id)
-        {
+        {   
             return _context.FoodPantry
-                .FirstOrDefault(foodPantry => foodPantry.Id == id);
+                .Include(fp => fp.Food)
+                .FirstOrDefault(fp => fp.Id == id);
         }
 
         public List<FoodPantry> GetFoodPantryByUserProfileId(int id)
         {
             return _context.FoodPantry
-                .Include(foodPantry => foodPantry.UserProfile)
-                .Include(foodPantry => foodPantry.Food)
-                .Where(foodPantry => foodPantry.UserProfileId == id)
+                .Include(fp => fp.Food)
+                .Where(fp => fp.UserProfileId == id)
                 .ToList();
         }
 
