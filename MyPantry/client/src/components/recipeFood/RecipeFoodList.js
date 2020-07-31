@@ -10,7 +10,7 @@ export const RecipeFoodList = ({ recipeId }) => {
     useEffect(() => {
         getRecipeFoodByRecipeId(recipeId);
     }, []);
-    debugger
+
     return (
         <div className="container">
             <Card className="m-4 recipe">

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react'
-import { Card, CardImg, CardBody } from "reactstrap";
+import { Card, CardImg, CardBody, Button } from "reactstrap";
 import { useParams, Link } from 'react-router-dom'
 import { UserProfileContext } from '../../providers/UserProfileProvider';
 import { UserRecipeList } from '../recipes/UserRecipeList';
@@ -31,8 +31,11 @@ const UserProfile = () => {
                                 <h3>UserName:  {userProfile.displayName}</h3>
                                 <h3>Email:  {userProfile.email}</h3>
                             </CardBody>
-                            <br />
-                            <br />
+                            <Link to={`/Recipeform`}>
+                                <Button className="btn btn-primary">
+                                    Add Recipe
+                                </Button>
+                            </Link>
                             <div>
                                 <UserRecipeList />
                             </div>

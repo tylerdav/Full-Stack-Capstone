@@ -1,7 +1,7 @@
 
 import React, { useContext, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { CategoryContext } from "../providers/CategoryProvider";
+import { CategoryContext } from "../../providers/CategoryProvider";
 import { RecipeContext } from '../../providers/RecipeProvider';
 
 export default props => {
@@ -21,6 +21,7 @@ export default props => {
             title: title.current.value,
             content: content.current.value,
             categoryId: parseInt(category.current.value),
+            // foodId: parseInt(food.current.value),
             userProfileId: userProfile.id,
             imageLocation: imageLocation.current.value
         }

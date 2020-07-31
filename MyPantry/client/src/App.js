@@ -9,6 +9,7 @@ import { UserRecipeProvider } from './providers/UserRecipeProvider';
 import { FoodPantryProvider } from './providers/FoodPantryProvider';
 import { FoodProvider } from './providers/FoodProvider';
 import { RecipeFoodProvider } from './providers/RecipeFoodProvider';
+import { CategoryProvider } from './providers/CategoryProvider';
 
 function App() {
   return (
@@ -18,12 +19,14 @@ function App() {
           <RecipeProvider >
             <UserRecipeProvider>
               <FoodProvider>
-                <RecipeFoodProvider>
-                  <FoodPantryProvider>
-                    <Header />
-                    <ApplicationViews />
-                  </FoodPantryProvider>
-                </RecipeFoodProvider>
+                <CategoryProvider>
+                  <RecipeFoodProvider>
+                    <FoodPantryProvider>
+                      <Header />
+                      <ApplicationViews />
+                    </FoodPantryProvider>
+                  </RecipeFoodProvider>
+                </CategoryProvider>
               </FoodProvider>
             </UserRecipeProvider>
           </RecipeProvider>
