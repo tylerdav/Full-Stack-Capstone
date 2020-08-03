@@ -32,9 +32,9 @@ const UserProfile = () => {
                                 <h3>Email:  {userProfile.email}</h3>
                             </CardBody>
                             <Link to={`/Recipeform`}>
-                                <Button className="btn btn-primary">
+                                <button className="btn btn-primary">
                                     Add Recipe
-                                </Button>
+                                </button>
                             </Link>
                             <div>
                                 <UserRecipeList />

@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.login_box, .register_box{
+.login_box, .register_box {
   margin-top: 50px;
   margin-left: 30%;
   margin-right: 30%;
@@ -21,4 +21,15 @@ code {
   padding: 20px;
   color: black;
   max-width: 40%;
+}
+
+.newRecipeForm {
+  margin-top: 50px;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: solid 2px grey;
+  border-radius: 10px;
+  padding: 20px;
+  color: black;
+  max-width: 70%;
 }

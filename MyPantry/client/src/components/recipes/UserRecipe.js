@@ -25,6 +25,7 @@ export const UserRecipe = ({ recipe }) => {
                     <div>
                         <p>{recipe.content}</p>
                         <p>Category: {recipe.category.name}</p>
+                        <strong>Ingrediants: </strong>
                         <div>
                             <RecipeFoodList recipeId={recipe.id} />
                         </div>

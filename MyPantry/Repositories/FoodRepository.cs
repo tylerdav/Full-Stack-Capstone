@@ -18,12 +18,20 @@ namespace MyPantry.Repositories
 
         public List<Food> GetAll()
         {
-            return _context.Food.OrderBy(c => c.Name).ToList();
+            return _context.Food.OrderBy(f => f.Name).ToList();
         }
 
         public Food GetById(int id)
         {
-            return _context.Food.FirstOrDefault(c => c.Id == id);
+            return _context.Food.FirstOrDefault(f => f.Id == id);
+        }
+
+        public List<Food> Search(string criterion)
+        {
+            var query = _context.Food
+                .Where(f => f.Name.Contains(criterion));
+
+            return query.OrderBy(f => f.Name).ToList();
         }
     }
 }
