@@ -20,7 +20,7 @@ const FoodPantrySearch = () => {
 
     return (
         <Form>
-            <Input placeholder='Search...' onChange={Search} />
+            <Input placeholder='Search for Food...' onChange={Search} />
         </Form>
     )
 

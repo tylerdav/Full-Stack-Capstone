@@ -43,12 +43,8 @@ export function FoodPantryProvider(props) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(foodPantry),
-            }).then((resp) => {
-                if (resp.ok) {
-                    return resp.json();
-                }
-                throw new Error("Unauthorized");
             })
+                .then(getFoodPantryByUserProfileId)
         );
     };
 
