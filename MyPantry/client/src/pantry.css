@@ -1,0 +1,23 @@
+.pantry_search {
+    max-width: 20%;
+}
+
+.pantry_cards {
+    margin-left: 25%;
+}
+
+.food_card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    justify-content: space-evenly;
+}
+
+h2 {
+    text-align: center;
+}
+
+.pantry_container {
+    margin: 20px;
+
+}

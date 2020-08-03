@@ -35,5 +35,16 @@ namespace MyPantry.Controllers
             }
             return Ok(category);
         }
+
+        [HttpGet("search")]
+        public IActionResult Search(string q)
+        {
+            if (string.IsNullOrEmpty(q))
+            {
+                return Ok(_foodRepository.GetAll());
+            }
+
+            return Ok(_foodRepository.Search(q));
+        }
     }
 }

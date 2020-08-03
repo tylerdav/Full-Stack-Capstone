@@ -78,7 +78,7 @@ export function FoodPantryProvider(props) {
                     "Content-Type": "application/json",
                 },
             })
-        );
+        ).then(getAllFoodPantries);
     };
 
     return (

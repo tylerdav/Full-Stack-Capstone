@@ -41,7 +41,7 @@ export default props => {
                 <h2 className='recipeForm__title'>New Recipe</h2>
                 <fieldset>
                     <div className='form-group'>
-                        <label htmlFor='recipeTitle'>Recipe title: </label>
+                        <label htmlFor='recipeTitle'>Recipe Name: </label>
                         <input
                             type='text'
                             id='recipeTitle'
@@ -56,7 +56,7 @@ export default props => {
 
                 <fieldset>
                     <div className='form-group'>
-                        <label htmlFor='recipeContent'>Recipe Instructions: </label>
+                        <label htmlFor='recipeContent'>Instructions: </label>
                         <input
                             type='textarea'
                             id='recipeContent'
@@ -116,7 +116,7 @@ export default props => {
                     className='btn btn-primary'
                 >
                     Save Recipe
-      </button>
+                </button>
             </form>
         </div>
     )

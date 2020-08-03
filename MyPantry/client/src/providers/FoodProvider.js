@@ -9,6 +9,16 @@ export const FoodProvider = (props) => {
 
     const apiUrl = '/api/food'
 
+    const getAllFoods = () =>
+        getToken().then((token) =>
+            fetch(apiUrl, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(resp => resp.json())
+                .then(setFoods));
+
     const getFoodsByUserProfileId = (id) => {
         getToken().then((token) =>
             fetch(apiUrl + `/getbypost/${id}`, {
@@ -19,6 +29,17 @@ export const FoodProvider = (props) => {
             }).then(resp => resp.json())
                 .then(setFoods));
     };
+
+    const searchFood = (searchTerm) => {
+        return getToken().then((token) =>
+            fetch(apiUrl + `/search?q=${searchTerm}`, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(resp => resp.json())
+                .then(setFoods));
+    }
 
     const getFood = (id) => {
         return getToken().then((token) =>
@@ -55,7 +76,7 @@ export const FoodProvider = (props) => {
 
     return (
         <FoodContext.Provider value={{
-            foods, getFoodsByUserProfileId, getFood, addFood, deleteFood,
+            foods, getAllFoods, getFoodsByUserProfileId, searchFood, getFood, addFood, deleteFood,
         }}>
             {props.children}
         </FoodContext.Provider>
