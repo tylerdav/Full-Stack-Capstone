@@ -14,7 +14,6 @@ export const RecipeFoodList = ({ recipeId }) => {
     return (
         <div className="container">
             <Card className="m-4 recipe">
-                <h2>Ingridiants</h2>
                 <div className="row justify-content-center">
                     <div className="cards-column">
                         {recipeFoods.map((recipeFood) => (

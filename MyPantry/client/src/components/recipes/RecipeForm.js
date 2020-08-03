@@ -3,6 +3,10 @@ import React, { useContext, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { CategoryContext } from "../../providers/CategoryProvider";
 import { RecipeContext } from '../../providers/RecipeProvider';
+import { FoodContext } from '../../providers/FoodProvider';
+import SelectSearch from 'react-select-search';
+
+
 
 export default props => {
     const { addRecipe, recipes } = useContext(RecipeContext);
@@ -21,7 +25,6 @@ export default props => {
             title: title.current.value,
             content: content.current.value,
             categoryId: parseInt(category.current.value),
-            // foodId: parseInt(food.current.value),
             userProfileId: userProfile.id,
             imageLocation: imageLocation.current.value
         }
@@ -110,8 +113,7 @@ export default props => {
                     type='submit'
                     onClick={evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
-                        constructNewRecipe().then(p => history.push('/userrecipes'))
-
+                        constructNewRecipe().then(p => history.push(`/profiles/${userProfile.id}`))
                     }}
                     className='btn btn-primary'
                 >
