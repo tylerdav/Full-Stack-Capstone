@@ -1,19 +1,16 @@
 
 
-import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext } from "react";
 import { Card, CardBody } from "reactstrap";
-import { FoodPantryContext } from "../../providers/FoodPantryProvider";
+import { RecipeFoodContext } from "../../providers/RecipeFoodProvider";
 
-export const Food = ({ food }) => {
+export const AddRecipeFoodForm = ({ food, recipeId, setIngredients }) => {
 
-
-    const { addFoodPantry } = useContext(FoodPantryContext)
-    const userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
+    const { addRecipeFood } = useContext(RecipeFoodContext);
 
     const addThisFood = (foodId) => {
-        return addFoodPantry({
-            userProfileId: userProfile.id,
+        return addRecipeFood({
+            recipeId: recipeId,
             foodId: foodId
         })
     }
@@ -27,15 +24,17 @@ export const Food = ({ food }) => {
             <CardBody>
                 <div className="food_card">
                     <h5>{food.name}</h5>
-                    <button type="submit"
+
+                    < button type="submit"
                         onClick={
                             evt => {
                                 evt.preventDefault() // Prevent browser from submitting the form
                                 addThisFood(food.id)
+                                    .then(setIngredients)
                             }
                         }
                         className="btn btn-primary">
-                        Add
+                        Add Ingredient
                     </button>
                 </div>
             </CardBody>

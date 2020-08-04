@@ -1,18 +1,26 @@
 import React, { useContext, useState } from "react";
-import { Card, CardImg, CardBody, ModalHeader, ModalBody, Modal, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Card, CardImg, CardBody, ModalHeader, ModalBody, Modal, Button, ListGroupItem } from "reactstrap";
+import { useParams, Link, useHistory } from 'react-router-dom'
 import { EditRecipeForm } from "./EditRecipeForm";
 import { UserRecipeContext } from "../../providers/UserRecipeProvider";
 import { RecipeFoodList } from "../recipeFood/RecipeFoodList";
 
 export const UserRecipe = ({ recipe }) => {
+
     const { deleteRecipe } = useContext(UserRecipeContext);
+    const userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
+    const history = useHistory();
 
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
 
     const [editModal, setEditModal] = useState(false)
     const toggleEdit = () => setEditModal(!editModal)
+
+
+    const ManageFood = () => {
+        return history.push(`/rfmanage/recipe/${recipe.id}`)
+    }
 
     return (
         <Card className="userRecipe">
@@ -25,10 +33,37 @@ export const UserRecipe = ({ recipe }) => {
                     <div>
                         <p>{recipe.content}</p>
                         <p>Category: {recipe.category.name}</p>
-                        <strong>Ingrediants: </strong>
+                        {/* <strong>Ingrediants: </strong>
                         <div>
                             <RecipeFoodList recipeId={recipe.id} />
+                        </div> */}
+
+                        <div>
+                            {
+                                (recipe.userProfileId === userProfile.id)
+                                    ? <Button
+                                        color="info"
+                                        onClick={
+                                            evt => {
+                                                evt.preventDefault()
+                                                ManageFood()
+                                            }
+                                        }>Manage Food
+                                    </Button>
+                                    : ""
+                            }
+                            <ListGroupItem>
+                                <div>
+                                    <strong>Ingrediants: </strong>
+                                    <div>
+                                        <RecipeFoodList recipeId={recipe.id} />
+                                    </div>
+                                </div>
+                            </ListGroupItem>
                         </div>
+
+
+
                         <p>Posted by: {recipe.userProfile.displayName}</p>
                     </div>
                 </div>
