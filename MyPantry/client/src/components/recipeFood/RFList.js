@@ -1,24 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
-import { RecipeFood } from "./RecipeFood";
 import { Card } from "reactstrap";
 import { RecipeFoodContext } from "../../providers/RecipeFoodProvider";
+import { RF } from "./RF";
 
-export const RecipeFoodList = ({ recipeId }) => {
-    const { recipeFoods, getRecipeFoodByRecipeId } = useContext(RecipeFoodContext);
-    const [ingredients, setIngredients] = useState([])
+export const RFList = ({ recipeId, ingredients, setIngredients }) => {
+
+    const { getRecipeFoodByRecipeId } = useContext(RecipeFoodContext);
 
     useEffect(() => {
         getRecipeFoodByRecipeId(recipeId)
-            .then(setIngredients);
+            .then(() => setIngredients(ingredients))
     }, []);
 
     return (
-        <div className="container">
-            <Card className="m-4 recipe">
+        <div className="pantry_container">
+            <Card className="pantry_cards">
+                <h1>Manage Food</h1>
                 <div className="row justify-content-center">
                     <div className="cards-column">
                         {ingredients.map((recipeFood) => (
-                            <RecipeFood key={recipeFood.id} recipeFood={recipeFood} />
+                            <RF key={recipeFood.id} recipeFood={recipeFood} setIngredients={setIngredients} />
                         ))}
                     </div>
                 </div>

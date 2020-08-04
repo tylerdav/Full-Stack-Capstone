@@ -7,6 +7,7 @@ import UserProfile from "./userProfiles/UserProfile";
 import { RecipeList } from "./recipes/RecipeList";
 import { FoodPantryList } from "./foodPantry/FoodPantryList";
 import RecipeForm from "./recipes/RecipeForm";
+import { RFManage } from "./recipeFood/RFManage";
 
 export default function ApplicationViews() {
     const { isLoggedIn } = useContext(UserProfileContext);
@@ -32,6 +33,10 @@ export default function ApplicationViews() {
 
                 <Route path="/recipeform" exact>
                     {isLoggedIn ? <RecipeForm /> : <Redirect to="/profiles/:Id" />}
+                </Route>
+
+                <Route path="/rfmanage/recipe/:id">
+                    {isLoggedIn ? <RFManage /> : <Redirect to="/profiles/:Id" />}
                 </Route>
 
                 <Route path="/login">

@@ -36,7 +36,6 @@ namespace MyPantry.Repositories
         public List<RecipeFood> GetRecipeFoodByRecipeId(int id)
         {
             return _context.RecipeFood
-                .Include(recipeFood => recipeFood.Recipe)
                 .Include(recipeFood => recipeFood.Food)
                 .Where(recipeFood => recipeFood.RecipeId == id)
                 .ToList();

@@ -30,7 +30,7 @@ export function RecipeFoodProvider(props) {
                 }
             })
                 .then((res) => res.json())
-                .then(setRecipeFoods));
+        );
     }
 
 
@@ -43,12 +43,7 @@ export function RecipeFoodProvider(props) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(recipeFood),
-            }).then((resp) => {
-                if (resp.ok) {
-                    return resp.json();
-                }
-                throw new Error("Unauthorized");
-            })
+            }).then(() => getRecipeFoodByRecipeId(recipeFood.recipeId))
         );
     };
 
@@ -69,15 +64,15 @@ export function RecipeFoodProvider(props) {
             }))
     }
 
-    const deleteRecipeFood = (id) => {
+    const deleteRecipeFood = (recipeFood) => {
         return getToken().then((token) =>
-            fetch(apiUrl + `${id}`, {
+            fetch(apiUrl + `${recipeFood.id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
                 },
-            })
+            }).then(() => getRecipeFoodByRecipeId(recipeFood.recipeId))
         );
     };
 
