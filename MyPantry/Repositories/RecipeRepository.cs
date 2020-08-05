@@ -22,6 +22,7 @@ namespace MyPantry.Repositories
             return _context.Recipe
                 .Include(r => r.UserProfile)
                 .Include(r => r.Category)
+                .Include(r => r.RecipeFood)
                 .ToList();
 
         }

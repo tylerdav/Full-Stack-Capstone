@@ -3,7 +3,10 @@
 }
 
 .pantry_cards {
-    margin-left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    justify-content: space-evenly;
 }
 
 .food_card {
@@ -19,5 +22,4 @@ h2 {
 
 .pantry_container {
     margin: 20px;
-
 }

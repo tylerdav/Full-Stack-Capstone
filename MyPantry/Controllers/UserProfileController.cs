@@ -42,22 +42,17 @@ namespace MyPantry.Controllers
                 nameof(GetByFirebaseUserId), new { firebaseUserId = userProfile.FirebaseUserId }, userProfile);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet]
+        public IActionResult Get()
         {
-
             var userProfile = GetCurrentUserProfile();
             if (userProfile == null)
             {
                 return NotFound();
             }
-            else if(userProfile.Id == id) 
-            {
-                return Ok(_userProfileRepository.GetById(id));
-            }
             else
             {
-                return Unauthorized();
+                return Ok(_userProfileRepository.GetById(userProfile.Id));
             }
         }
 

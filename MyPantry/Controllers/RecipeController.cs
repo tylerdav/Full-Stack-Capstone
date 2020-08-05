@@ -33,8 +33,9 @@ namespace MyPantry.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
+            var userProfile = GetCurrentUserProfile();
             var recipe = _recipeRepository.GetById(id);
-            if (recipe == null)
+            if (recipe == null || recipe.UserProfileId != userProfile.Id)
             {
                 return NotFound();
             }

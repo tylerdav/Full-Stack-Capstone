@@ -1,0 +1,10 @@
+.make_now_btn {
+    margin-top: 20px;
+
+}
+
+.btn_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

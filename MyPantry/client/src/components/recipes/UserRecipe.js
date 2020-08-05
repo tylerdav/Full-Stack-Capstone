@@ -21,7 +21,7 @@ export const UserRecipe = ({ recipe }) => {
     const ManageFood = () => {
         return history.push(`/rfmanage/recipe/${recipe.id}`)
     }
-
+    debugger
     return (
         <Card className="userRecipe">
             <CardImg top src={recipe.imageLocation} />
@@ -33,12 +33,8 @@ export const UserRecipe = ({ recipe }) => {
                     <div>
                         <p>{recipe.content}</p>
                         <p>Category: {recipe.category.name}</p>
-                        {/* <strong>Ingrediants: </strong>
                         <div>
-                            <RecipeFoodList recipeId={recipe.id} />
-                        </div> */}
-
-                        <div>
+                            <strong>Ingrediants: </strong>
                             {
                                 (recipe.userProfileId === userProfile.id)
                                     ? <Button
@@ -50,7 +46,8 @@ export const UserRecipe = ({ recipe }) => {
                                             }
                                         }>Manage Food
                                     </Button>
-                                    : ""
+                                    :
+                                    <div>""</div>
                             }
                             <ListGroupItem>
                                 <div>
