@@ -21,6 +21,8 @@ namespace MyPantry.Models
 
         public Category Category { get; set; }
 
+        public List<RecipeFood> RecipeFood { get; set; }
+
         [Required]
         public int UserProfileId { get; set; }
 

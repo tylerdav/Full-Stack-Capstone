@@ -12,7 +12,8 @@ const UserProfile = () => {
     console.log(Id);
 
     useEffect(() => {
-        getProfile(Id).then(setUserProfiles)
+        getProfile(Id)
+            .then(setUserProfiles)
     }, [])
 
     if (!userProfile) {

@@ -7,6 +7,7 @@ import { RecipeContext } from "../../providers/RecipeProvider";
 export const EditRecipeForm = (props) => {
     const { updateRecipe } = useContext(RecipeContext);
     const { categories, getAllCategories } = useContext(CategoryContext);
+    const userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
     const [profileUpdate, setRecipe] = useState(props.recipe);
     const history = useHistory();
 
@@ -22,7 +23,7 @@ export const EditRecipeForm = (props) => {
 
     const editRecipe = () => {
         profileUpdate.categoryId = parseInt(profileUpdate.categoryId);
-        updateRecipe(profileUpdate).then(props.toggle).then(history.push(`/recipes/${props.recipe.id}`));
+        updateRecipe(profileUpdate).then(props.toggle).then(history.push(`/profiles/${props.userProfile.id}`));
     };
 
     return (

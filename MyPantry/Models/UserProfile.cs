@@ -25,5 +25,7 @@ namespace MyPantry.Models
         [MaxLength(300)]
         public string ImageLocation { get; set; }
 
+        public List<FoodPantry> FoodPantry { get; set; }
+
     }
 }

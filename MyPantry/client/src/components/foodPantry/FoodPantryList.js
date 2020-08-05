@@ -15,18 +15,20 @@ export const FoodPantryList = () => {
     return (
         <div className="pantry_container">
             <h2>My Pantry</h2>
-            <div className="pantry_search">
-                <FoodList />
-            </div>
-            <Card className="pantry_cards">
-                <div className="row justify-content-center">
-                    <div className="cards-column">
-                        {foodPantries.map((foodPantry) => (
-                            <FoodPantry key={foodPantry.id} foodPantry={foodPantry} />
-                        ))}
-                    </div>
+            <div className="my_pantry">
+                <div className="pantry_search">
+                    <FoodList />
                 </div>
-            </Card>
+                <Card className="pantry_cards">
+                    <div className="row justify-content-center">
+                        <div className="cards-column">
+                            {foodPantries.map((foodPantry) => (
+                                <FoodPantry key={foodPantry.id} foodPantry={foodPantry} />
+                            ))}
+                        </div>
+                    </div>
+                </Card>
+            </div>
         </div>
     );
 };

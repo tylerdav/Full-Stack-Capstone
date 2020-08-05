@@ -4,8 +4,6 @@ import { RecipeFoodList } from "../recipeFood/RecipeFoodList";
 
 export const Recipe = ({ recipe }) => {
 
-
-
     return (
         <Card className="m-4 recipe">
             <CardImg top src={recipe.imageLocation} />

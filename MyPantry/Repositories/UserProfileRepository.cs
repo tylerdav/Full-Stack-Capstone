@@ -26,6 +26,7 @@ namespace MyPantry.Repositories
         public UserProfile GetById(int id)
         {
             return _context.UserProfile
+                .Include(up => up.FoodPantry)
                 .FirstOrDefault(up => up.Id == id);
         }
 
