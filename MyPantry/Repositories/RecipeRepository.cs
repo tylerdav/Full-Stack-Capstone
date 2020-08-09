@@ -29,9 +29,10 @@ namespace MyPantry.Repositories
 
         public Recipe GetById(int id)
         {
-            return _context.Recipe.Include(r => r.UserProfile)
-                                .Include(r => r.Category)
-                                .FirstOrDefault(r => r.Id == id);
+            return _context.Recipe
+                    .Include(r => r.UserProfile)
+                    .Include(r => r.Category)
+                    .FirstOrDefault(r => r.Id == id);
         }
 
         public List<Recipe> GetByUserProfileId(int id)
@@ -60,5 +61,7 @@ namespace MyPantry.Repositories
             _context.Recipe.Remove(post);
             _context.SaveChanges();
         }
+
+
     }
 }

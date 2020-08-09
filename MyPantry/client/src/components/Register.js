@@ -26,9 +26,12 @@ export default function Register() {
 
     return (
         <Form onSubmit={registerClick}>
+            <div className="login_img">
+                <img src="https://img.icons8.com/color/96/000000/hamper.png" />
+            </div>
             <fieldset className="register_box">
                 <FormGroup>
-                    <Label htmlFor="displayName">Display Name</Label>
+                    <Label htmlFor="displayName">Username</Label>
                     <Input id="displayName" type="text" onChange={e => setDisplayName(e.target.value)} />
                 </FormGroup>
                 <FormGroup>

@@ -11,6 +11,7 @@ import { FoodProvider } from './providers/FoodProvider';
 import { RecipeFoodProvider } from './providers/RecipeFoodProvider';
 import { CategoryProvider } from './providers/CategoryProvider';
 
+
 function App() {
   return (
     <div className="App">

@@ -58,9 +58,15 @@ namespace MyPantry.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, Recipe recipe)
         {
+            var user = GetCurrentUserProfile();
+
             if (id != recipe.Id)
             {
                 return BadRequest();
+            }
+            if (user.Id != recipe.UserProfileId)
+            {
+                return Unauthorized();
             }
 
             _recipeRepository.Update(recipe);

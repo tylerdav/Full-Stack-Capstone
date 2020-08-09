@@ -1,5 +1,6 @@
 .pantry_search {
     max-width: 20%;
+    float: left;
 }
 
 .pantry_cards {
@@ -7,13 +8,11 @@
     flex-wrap: wrap;
     flex-basis: 100%;
     justify-content: space-evenly;
+    max-width: 80%;
 }
 
 .food_card {
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 100%;
-    justify-content: space-evenly;
+    
 }
 
 h2 {

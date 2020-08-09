@@ -32,11 +32,11 @@ const UserProfile = () => {
                                 <h3>UserName:  {userProfile.displayName}</h3>
                                 <h3>Email:  {userProfile.email}</h3>
                             </CardBody>
-                            <Link to={`/Recipeform`}>
-                                <button className="btn btn-primary">
-                                    Add Recipe
-                                </button>
-                            </Link>
+                            <div className="add_recipe">
+                                <Link to={`/Recipeform`}>
+                                    <Button outline color="success">Add Recipe</Button>
+                                </Link>
+                            </div>
                             <div>
                                 <UserRecipeList />
                             </div>

@@ -20,7 +20,7 @@ export default function Header() {
 
     return (
         <div>
-            <Navbar color="light" light expand="md" >
+            <Navbar light expand="md" >
                 <NavbarBrand tag={RRNavLink} to="/recipes">MyPantry</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
