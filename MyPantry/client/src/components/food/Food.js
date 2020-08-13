@@ -2,7 +2,7 @@
 
 import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Card, CardBody } from "reactstrap";
+import { Card, CardBody, Button, Row, Col } from "reactstrap";
 import { FoodPantryContext } from "../../providers/FoodPantryProvider";
 
 export const Food = ({ food }) => {
@@ -25,19 +25,22 @@ export const Food = ({ food }) => {
     return (
         <Card className="m-1 food_pantry_card">
             <CardBody>
-                <div className="food_card">
-                    <h5>{food.name}</h5>
-                    <button type="submit"
+                <Row className="food_card">
+                    <Col>
+                        <h5>{food.name}</h5>
+                    </Col>
+                    <Button type="submit"
+                        outline color="secondary"
                         onClick={
                             evt => {
                                 evt.preventDefault() // Prevent browser from submitting the form
                                 addThisFood(food.id)
                             }
                         }
-                        className="btn btn-primary">
+                        className="add_food_pantry">
                         Add
-                    </button>
-                </div>
+                    </Button>
+                </Row>
             </CardBody>
         </Card>
     )

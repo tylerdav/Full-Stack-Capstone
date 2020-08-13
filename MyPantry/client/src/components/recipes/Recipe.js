@@ -19,7 +19,7 @@ export const Recipe = ({ recipe }) => {
                     <Col>
                         Instructions:
                         <p>{recipe.content}</p>
-                        <p>Category: {recipe.category.name}</p>
+                        <p className="recipe_category">Category: {recipe.category.name}</p>
                     </Col>
                 </Row>
             </Card>

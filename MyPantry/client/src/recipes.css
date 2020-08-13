@@ -3,16 +3,14 @@
 
 }
 
-.btn_container {
+.btn_container, .add_recipe, .userRecipeBtns {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.add_recipe {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.delete_edit_btns {
+min-width: 100px;
 }
 
 .newRecipeForm {
@@ -45,6 +43,7 @@
     min-height: 80%;
 }
 
-.recipe_ingredients {
-
+.recipe_posted_by, .recipe_category {
+    position:absolute;
+    bottom:0;
 }

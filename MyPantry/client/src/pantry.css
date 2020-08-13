@@ -1,7 +1,4 @@
-.pantry_search {
-    max-width: 20%;
-    float: left;
-}
+
 
 .pantry_cards {
     display: flex;
@@ -11,8 +8,8 @@
     max-width: 80%;
 }
 
-.food_card {
-    
+.food_in_pantry {
+    padding: 20px;
 }
 
 h2 {
@@ -20,5 +17,10 @@ h2 {
 }
 
 .pantry_container {
-    margin: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.add_food_pantry {
+    margin-right: 20px;
 }

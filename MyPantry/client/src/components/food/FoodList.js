@@ -15,14 +15,10 @@ export const FoodList = () => {
 
     return (
         <div className="container">
-            <Card>
-                <div>
-                    <FoodSearch />
-                    {foods.map((food) => (
-                        <Food key={food.id} food={food} />
-                    ))}
-                </div>
-            </Card>
+            <FoodSearch />
+            {foods.map((food) => (
+                <Food key={food.id} food={food} />
+            ))}
         </div>
     );
 };

@@ -30,7 +30,12 @@ export const UserRecipe = ({ recipe }) => {
             <br />
             <Row>
                 <Col>
-                    <CardImg top src={recipe.imageLocation} />
+                    <Row>
+                        <CardImg top src={recipe.imageLocation} />
+                    </Row>
+                    <Row className="recipe_posted_by">
+                        <p>Posted by: {recipe.userProfile.displayName}</p>
+                    </Row>
                 </Col>
                 <Col className="userRecipeItems">
                     <div className="btn_container">
@@ -38,6 +43,7 @@ export const UserRecipe = ({ recipe }) => {
                             (recipe.userProfileId === userProfile.id)
                                 ? <Button
                                     color="info"
+                                    outline color="secondary"
                                     onClick={
                                         evt => {
                                             evt.preventDefault()
@@ -52,20 +58,24 @@ export const UserRecipe = ({ recipe }) => {
                 </Col>
                 <Col>
                     <p>{recipe.content}</p>
-                    <p>Category: {recipe.category.name}</p>
+                    <p className="recipe_category">Category: {recipe.category.name}</p>
                 </Col>
             </Row>
-            <Row>
-                <p>Posted by: {recipe.userProfile.displayName}</p>
-            </Row>
+
             <Row className="userRecipeBtns">
-                <Button className="button_margin" outline color="danger" onClick={toggle}>Delete</Button>
+                <Button className="button_margin delete_edit_btns" outline color="secondary" onClick={toggleEdit}>Edit</Button>
+                <Modal isOpen={editModal} toggle={toggleEdit}>
+                    <ModalBody className="RecipeModalBody">
+                        <EditRecipeForm recipe={recipe} toggle={toggleEdit} userProfileId={userProfile.id} />
+                    </ModalBody>
+                </Modal>
+                <Button className="delete_edit_btns" outline color="secondary" onClick={toggle}>Delete</Button>
                 <Modal isOpen={modal} toggle={toggle}>
                     <ModalHeader toggle={toggle}>
                         Are you sure you want to delete {recipe.title}?
                             </ModalHeader>
                     <ModalBody className="RecipeModalBody">
-                        <button
+                        <Button
                             type="submit"
                             outline color="danger"
                             onClick={
@@ -75,23 +85,18 @@ export const UserRecipe = ({ recipe }) => {
                                 }}
                             className="button_margin">
                             Delete
-                                </button>
-                        <button
+                        </Button>
+                        <Button
                             type="submit"
+                            outline color="secondary"
                             onClick={
                                 evt => {
                                     evt.preventDefault()
                                     toggle()
                                 }}
-                            className="btn btn-primary">
+                            className="">
                             Cancel
-                                </button>
-                    </ModalBody>
-                </Modal>
-                <Button outline color="warning" onClick={toggleEdit}>Edit</Button>
-                <Modal isOpen={editModal} toggle={toggleEdit}>
-                    <ModalBody className="RecipeModalBody">
-                        <EditRecipeForm recipe={recipe} toggle={toggleEdit} userProfileId={userProfile.id} />
+                        </Button>
                     </ModalBody>
                 </Modal>
             </Row>
