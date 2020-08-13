@@ -19,6 +19,9 @@ export default function Login() {
 
     return (
         <Form onSubmit={loginSubmit}>
+            <div className="login_img">
+                <img src="https://img.icons8.com/color/96/000000/hamper.png" />
+            </div>
             <fieldset className="login_box">
                 <FormGroup>
                     <Label for="email">Email</Label>

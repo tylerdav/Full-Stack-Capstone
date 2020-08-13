@@ -3,8 +3,47 @@
 
 }
 
-.btn_container {
+.btn_container, .add_recipe, .userRecipeBtns {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.delete_edit_btns {
+min-width: 100px;
+}
+
+.newRecipeForm {
+    margin-top: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border: solid 2px grey;
+    border-radius: 10px;
+    padding: 20px;
+    color: black;
+    max-width: 70%;
+  }
+
+  .food_recipe_ingredient {
+      border-color: transparent;
+  }
+  
+  .recipe_card {
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.recipe_title {
+    text-align: center;
+}
+
+.recipe_img {
+    min-height: 80%;
+}
+
+.recipe_posted_by, .recipe_category {
+    position:absolute;
+    bottom:0;
 }

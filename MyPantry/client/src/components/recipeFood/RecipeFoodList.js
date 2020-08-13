@@ -13,16 +13,15 @@ export const RecipeFoodList = ({ recipeId }) => {
     }, []);
 
     return (
-        <div className="container">
-            <Card className="m-4 recipe">
-                <div className="row justify-content-center">
-                    <div className="cards-column">
-                        {ingredients.map((recipeFood) => (
-                            <RecipeFood key={recipeFood.id} recipeFood={recipeFood} />
-                        ))}
-                    </div>
+        <Card className="m-4 recipe">
+            <div className="recipe_ingredients">
+                <div className="cards-row">
+                    <p>Ingrediants: </p>
+                    {ingredients.map((recipeFood) => (
+                        <RecipeFood key={recipeFood.id} recipeFood={recipeFood} />
+                    ))}
                 </div>
-            </Card>
-        </div>
+            </div>
+        </Card>
     );
 };

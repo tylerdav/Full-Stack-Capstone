@@ -42,8 +42,7 @@ export const RecipeProvider = (props) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(recipe),
-            }).then(getAllRecipes)
-                .then(setRecipes));
+            }).then(getAllRecipes));
 
     }
 

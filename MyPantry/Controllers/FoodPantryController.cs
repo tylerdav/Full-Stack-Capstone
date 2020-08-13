@@ -60,16 +60,22 @@ namespace MyPantry.Controllers
             return CreatedAtAction("Get", new { id = foodPantry.Id }, foodPantry);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult EditFoodPantry(FoodPantry foodPantry)
-        {
-            _foodPantryRepository.Update(foodPantry);
-            return Ok(foodPantry);
-        }
+        //[HttpPut("{id}")]
+        //public IActionResult EditFoodPantry(FoodPantry foodPantry)
+        //{
+        //    _foodPantryRepository.Update(foodPantry);
+        //    return Ok(foodPantry);
+        //}
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            var userProfile = GetCurrentUserProfile();
+            var foodPantry = _foodPantryRepository.GetByFoodPantryId(id);
+            if (userProfile.Id != foodPantry.UserProfileId)
+            {
+                return Forbid();
+            }
             _foodPantryRepository.Delete(id);
             return NoContent();
         }

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Card, CardImg, CardBody, ModalHeader, ModalBody, Modal, Button, ListGroupItem } from "reactstrap";
+import { Card, CardImg, CardBody, ModalHeader, ModalBody, Modal, Button, ListGroupItem, Row, Col } from "reactstrap";
 import { useParams, Link, useHistory } from 'react-router-dom'
 import { EditRecipeForm } from "./EditRecipeForm";
 import { UserRecipeContext } from "../../providers/UserRecipeProvider";
@@ -21,87 +21,85 @@ export const UserRecipe = ({ recipe }) => {
     const ManageFood = () => {
         return history.push(`/rfmanage/recipe/${recipe.id}`)
     }
-    debugger
+
     return (
-        <Card className="userRecipe">
-            <CardImg top src={recipe.imageLocation} />
-            <CardBody>
-                <div className="userRecipeTitle">
-                    <h3>{recipe.title}</h3>
-                </div>
-                <div className="userRecipeItems">
-                    <div>
-                        <p>{recipe.content}</p>
-                        <p>Category: {recipe.category.name}</p>
-                        <div>
-                            <strong>Ingrediants: </strong>
-                            {
-                                (recipe.userProfileId === userProfile.id)
-                                    ? <Button
-                                        color="info"
-                                        onClick={
-                                            evt => {
-                                                evt.preventDefault()
-                                                ManageFood()
-                                            }
-                                        }>Manage Food
-                                    </Button>
-                                    :
-                                    <div>""</div>
-                            }
-                            <ListGroupItem>
-                                <div>
-                                    <strong>Ingrediants: </strong>
-                                    <div>
-                                        <RecipeFoodList recipeId={recipe.id} />
-                                    </div>
-                                </div>
-                            </ListGroupItem>
-                        </div>
-
-
-
+        <Card className="m-4 recipe_card card">
+            <div className="userRecipeTitle">
+                <h3 className="recipe_title">{recipe.title}</h3>
+            </div>
+            <br />
+            <Row>
+                <Col>
+                    <Row>
+                        <CardImg top src={recipe.imageLocation} />
+                    </Row>
+                    <Row className="recipe_posted_by">
                         <p>Posted by: {recipe.userProfile.displayName}</p>
+                    </Row>
+                </Col>
+                <Col className="userRecipeItems">
+                    <div className="btn_container">
+                        {
+                            (recipe.userProfileId === userProfile.id)
+                                ? <Button
+                                    color="info"
+                                    outline color="secondary"
+                                    onClick={
+                                        evt => {
+                                            evt.preventDefault()
+                                            ManageFood()
+                                        }
+                                    }>Manage Food
+                                    </Button>
+                                : ""
+                        }
                     </div>
-                </div>
-                <br />
-                <div className="userRecipeBtns">
-                    <div><Button color="danger" onClick={toggle}>Delete</Button>
-                        <Modal isOpen={modal} toggle={toggle}>
-                            <ModalHeader toggle={toggle}>
-                                Are you sure you want to delete {recipe.title}?
+                    <RecipeFoodList recipeId={recipe.id} />
+                </Col>
+                <Col>
+                    <p>{recipe.content}</p>
+                    <p className="recipe_category">Category: {recipe.category.name}</p>
+                </Col>
+            </Row>
+
+            <Row className="userRecipeBtns">
+                <Button className="button_margin delete_edit_btns" outline color="secondary" onClick={toggleEdit}>Edit</Button>
+                <Modal isOpen={editModal} toggle={toggleEdit}>
+                    <ModalBody className="RecipeModalBody">
+                        <EditRecipeForm recipe={recipe} toggle={toggleEdit} userProfileId={userProfile.id} />
+                    </ModalBody>
+                </Modal>
+                <Button className="delete_edit_btns" outline color="secondary" onClick={toggle}>Delete</Button>
+                <Modal isOpen={modal} toggle={toggle}>
+                    <ModalHeader toggle={toggle}>
+                        Are you sure you want to delete {recipe.title}?
                             </ModalHeader>
-                            <ModalBody className="RecipeModalBody">
-                                <button type="submit"
-                                    onClick={
-                                        evt => {
-                                            evt.preventDefault()
-                                            deleteRecipe(recipe).then(toggle)
-                                        }}
-                                    className="btn btn-danger button_margin">
-                                    Delete
-                                </button>
-                                <button type="submit"
-                                    onClick={
-                                        evt => {
-                                            evt.preventDefault()
-                                            toggle()
-                                        }}
-                                    className="btn btn-primary">
-                                    Cancel
-                                </button>
-                            </ModalBody>
-                        </Modal>
-                    </div>
-                    <div><Button color="warning" onClick={toggleEdit}>Edit</Button>
-                        <Modal isOpen={editModal} toggle={toggleEdit}>
-                            <ModalBody className="RecipeModalBody">
-                                <EditRecipeForm recipe={recipe} toggle={toggleEdit} />
-                            </ModalBody>
-                        </Modal>
-                    </div>
-                </div>
-            </CardBody>
+                    <ModalBody className="RecipeModalBody">
+                        <Button
+                            type="submit"
+                            outline color="danger"
+                            onClick={
+                                evt => {
+                                    evt.preventDefault()
+                                    deleteRecipe(recipe).then(toggle)
+                                }}
+                            className="button_margin">
+                            Delete
+                        </Button>
+                        <Button
+                            type="submit"
+                            outline color="secondary"
+                            onClick={
+                                evt => {
+                                    evt.preventDefault()
+                                    toggle()
+                                }}
+                            className="">
+                            Cancel
+                        </Button>
+                    </ModalBody>
+                </Modal>
+            </Row>
         </Card>
     )
 }

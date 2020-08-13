@@ -113,7 +113,7 @@ export default props => {
                     type='submit'
                     onClick={evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
-                        constructNewRecipe().then(p => history.push(`/profiles/${userProfile.id}`))
+                        constructNewRecipe().then(p => history.push(`/profiles`))
                     }}
                     className='btn btn-primary'
                 >

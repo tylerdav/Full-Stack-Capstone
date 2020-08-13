@@ -3,13 +3,13 @@ import { CategoryContext } from "../../providers/CategoryProvider";
 import { Button, Form } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import { RecipeContext } from "../../providers/RecipeProvider";
+import { UserRecipeContext } from "../../providers/UserRecipeProvider";
 
 export const EditRecipeForm = (props) => {
+    const { getAllRecipesByUser } = useContext(UserRecipeContext);
     const { updateRecipe } = useContext(RecipeContext);
     const { categories, getAllCategories } = useContext(CategoryContext);
-    const userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
     const [profileUpdate, setRecipe] = useState(props.recipe);
-    const history = useHistory();
 
     const handleControlledInputChange = (event) => {
         const newRecipe = Object.assign({}, profileUpdate);
@@ -23,7 +23,7 @@ export const EditRecipeForm = (props) => {
 
     const editRecipe = () => {
         profileUpdate.categoryId = parseInt(profileUpdate.categoryId);
-        updateRecipe(profileUpdate).then(props.toggle).then(history.push(`/profiles/${props.userProfile.id}`));
+        updateRecipe(profileUpdate).then(props.toggle).then(() => getAllRecipesByUser(props.userProfileId));
     };
 
     return (

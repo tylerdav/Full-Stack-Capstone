@@ -13,23 +13,39 @@ code {
 }
 
 .login_box, .register_box {
-  margin-top: 50px;
   margin-left: 30%;
   margin-right: 30%;
-  border: solid 2px grey;
-  border-radius: 10px;
-  padding: 20px;
   color: black;
   max-width: 40%;
 }
 
-.newRecipeForm {
-  margin-top: 50px;
-  margin-left: 15%;
-  margin-right: 15%;
-  border: solid 2px grey;
-  border-radius: 10px;
-  padding: 20px;
-  color: black;
-  max-width: 70%;
+.navbar {
+  color: white !important;
+  background-color: rgb(42, 141, 42) !important;
+  margin-bottom: 50px;
+
+}
+
+.nav-link{
+  color: rgb(207, 207, 207) !important;
+}
+
+.navbar-light .nav-item.active .nav-link,
+.navbar-light .nav-item .nav-link:active,
+.navbar-light .nav-item .nav-link:focus,
+.navbar-light .nav-item:hover .nav-link {
+    color: white !important;
+}
+.navbar-brand {
+  color: white !important;
+}
+
+.login_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_margin {
+  margin-right: 15px;
 }
