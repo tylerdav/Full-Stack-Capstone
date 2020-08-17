@@ -1,0 +1,11 @@
+
+.up_img, .up_username {
+    max-width: 200px;
+    float: none;
+}
+
+.user_card {
+    max-width: 40%;
+    border: solid 2px rgb(42, 141, 42) !important;
+    border-radius: 20px !important;
+}

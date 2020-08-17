@@ -57,6 +57,7 @@ export const UserRecipe = ({ recipe }) => {
                     <RecipeFoodList recipeId={recipe.id} />
                 </Col>
                 <Col>
+                    <h5>Instructions:</h5>
                     <p>{recipe.content}</p>
                     <p className="recipe_category">Category: {recipe.category.name}</p>
                 </Col>
