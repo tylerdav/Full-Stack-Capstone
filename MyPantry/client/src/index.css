@@ -23,7 +23,6 @@ code {
   color: white !important;
   background-color: rgb(42, 141, 42) !important;
   margin-bottom: 50px;
-
 }
 
 .nav-link{
@@ -48,4 +47,8 @@ code {
 
 .button_margin {
   margin-right: 15px;
+}
+
+.collapse, .navbar-collapse {
+  margin-left: 15% !important;
 }

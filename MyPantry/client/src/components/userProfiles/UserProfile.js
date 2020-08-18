@@ -22,17 +22,21 @@ const UserProfile = () => {
 
     return (
         <div className='container'>
-            <Row>
-                <Col>
-                    <CardImg className="up_img" src={userProfile.imageLocation} />
-                </Col>
-                <Col>
-                    <br />
-                    <h3>User:  {userProfile.displayName}</h3>
-                    <h3>Email:  {userProfile.email}</h3>
-                </Col>
-            </Row>
+            <Card className="user_card mx-auto">
+                <Row>
+                    <Col className="d-flex align-items-center">
+                        <CardImg className="up_img" src={userProfile.imageLocation} />
+                    </Col>
+                    <Col className="d-flex align-items-center">
+                        <h3 class="row justify-content-center align-self-center">User:  {userProfile.displayName}</h3>
+                        {/* <h3>Email:  {userProfile.email}</h3> */}
+                    </Col>
+                </Row>
+            </Card>
             <br />
+            <div></div>
+            <br />
+            <h2>My Recipes</h2>
             <div className="add_recipe">
                 <Link to={`/Recipeform`}>
                     <Button outline color="success">Add Recipe</Button>

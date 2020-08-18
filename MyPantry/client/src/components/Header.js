@@ -36,7 +36,7 @@ export default function Header() {
                     <Nav className="mr-auto" navbar>
                         {isLoggedIn &&
                             <NavItem>
-                                <NavLink tag={RRNavLink} to="/mypantry">Food Catelog</NavLink>
+                                <NavLink tag={RRNavLink} to="/mypantry">My Pantry</NavLink>
                             </NavItem>
                         }
                     </Nav>

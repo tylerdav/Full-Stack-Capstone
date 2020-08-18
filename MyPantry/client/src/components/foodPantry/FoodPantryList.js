@@ -15,12 +15,13 @@ export const FoodPantryList = () => {
     return (
         <div className="pantry_container">
             <h2>My Pantry</h2>
+            <br />
             <Row className="my_pantry">
                 <Col className="pantry_search">
                     <FoodList />
                 </Col>
                 <Col>
-                    <h5>My Ingredients</h5>
+                    <h5 className="mypantry_title">My Ingredients</h5>
                     <div className="container">
                         {foodPantries.map((foodPantry) => (
                             <FoodPantry key={foodPantry.id} foodPantry={foodPantry} />
