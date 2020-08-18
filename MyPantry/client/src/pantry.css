@@ -24,3 +24,17 @@ h2 {
 .add_food_pantry {
     margin-right: 20px;
 }
+
+.mypantry_title {
+    text-align: center;
+    margin: 9px;
+}
+
+.mypantry_delete {
+    margin-right: 10px;
+}
+
+/* .mypantry_delete_header {
+    background-color: rgb(42, 141, 42);
+    color: white;
+} */

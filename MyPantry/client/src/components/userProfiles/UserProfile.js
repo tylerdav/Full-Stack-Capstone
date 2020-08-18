@@ -34,6 +34,8 @@ const UserProfile = () => {
                 </Row>
             </Card>
             <br />
+            <div></div>
+            <br />
             <h2>My Recipes</h2>
             <div className="add_recipe">
                 <Link to={`/Recipeform`}>

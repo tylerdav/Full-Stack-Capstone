@@ -20,7 +20,7 @@ export default function Register() {
         } else {
             const userProfile = { displayName, email, imageLocation };
             register(userProfile, password)
-                .then(() => history.push("/"));
+                .then(() => history.push("/recipes"));
         }
     };
 
