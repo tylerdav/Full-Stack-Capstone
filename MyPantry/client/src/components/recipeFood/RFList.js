@@ -13,10 +13,10 @@ export const RFList = ({ recipeId, ingredients, setIngredients }) => {
     }, []);
 
     return (
-        <div className="pantry_container">
+        <div className="container">
             {ingredients.map((recipeFood) => (
                 <RF key={recipeFood.id} recipeFood={recipeFood} setIngredients={setIngredients} />
-            ))}]
+            ))}
         </div>
     );
 };

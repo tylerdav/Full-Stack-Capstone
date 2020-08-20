@@ -32,10 +32,12 @@ export const RFManage = () => {
     } else {
         return (
             <div className="container">
-                <h1>Manage Food</h1>
+                <h1 className="mypantry_title">Manage Food</h1>
+                <br />
                 <Row>
                     <Col>
                         <FoodSearch />
+                        <br />
                         <div className="food_scroll">
                             {foods.map((food) => (
                                 <AddRecipeFoodForm key={food.id} food={food} recipeId={id} ingredients={ingredients} setIngredients={setIngredients} />
@@ -43,7 +45,8 @@ export const RFManage = () => {
                         </div>
                     </Col>
                     <Col>
-                        <h5>Recipe Ingredient(s)</h5>
+                        <h5 className="mypantry_title">Recipe Ingredient(s)</h5>
+                        <br />
                         <div className="food_scroll">
                             <RFList recipeId={id} ingredients={ingredients} setIngredients={setIngredients} />
                         </div>

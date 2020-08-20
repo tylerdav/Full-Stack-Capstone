@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Card, CardBody, Col, Row } from "reactstrap";
+import { Card, CardBody, Col, Row, Button } from "reactstrap";
 import { RecipeFoodContext } from "../../providers/RecipeFoodProvider";
 
 export const AddRecipeFoodForm = ({ food, recipeId, setIngredients }) => {
@@ -19,12 +19,12 @@ export const AddRecipeFoodForm = ({ food, recipeId, setIngredients }) => {
 
     return (
         <Card className="m-1 food_pantry_card">
-            <Row className="food_card">
-                <Col>
-                    <h5>{food.name}</h5>
-                </Col>
-                <Col>
-                    < button type="submit"
+            <CardBody>
+                <Row className="food_card">
+                    <Col>
+                        <h5>{food.name}</h5>
+                    </Col>
+                    <Button type="submit"
                         onClick={
                             evt => {
                                 evt.preventDefault() // Prevent browser from submitting the form
@@ -32,11 +32,12 @@ export const AddRecipeFoodForm = ({ food, recipeId, setIngredients }) => {
                                     .then(setIngredients)
                             }
                         }
-                        className="btn btn-primary">
-                        Add Ingredient
-                    </button>
-                </Col>
-            </Row>
+                        outline color="primary"
+                        className="add_food_pantry">
+                        Add
+                    </Button>
+                </Row>
+            </CardBody>
         </Card>
     )
 }
