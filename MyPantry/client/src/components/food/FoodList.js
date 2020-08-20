@@ -16,9 +16,12 @@ export const FoodList = () => {
     return (
         <div className="container">
             <FoodSearch />
-            {foods.map((food) => (
-                <Food key={food.id} food={food} />
-            ))}
+            <br />
+            <div className="food_scroll">
+                {foods.map((food) => (
+                    <Food key={food.id} food={food} />
+                ))}
+            </div>
         </div>
     );
 };

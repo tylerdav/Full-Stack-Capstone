@@ -1,7 +1,5 @@
-
-
 import React, { useContext } from "react";
-import { Card, CardBody } from "reactstrap";
+import { Card, CardBody, Col, Row } from "reactstrap";
 import { RecipeFoodContext } from "../../providers/RecipeFoodProvider";
 
 export const AddRecipeFoodForm = ({ food, recipeId, setIngredients }) => {
@@ -21,10 +19,11 @@ export const AddRecipeFoodForm = ({ food, recipeId, setIngredients }) => {
 
     return (
         <Card className="m-1 food_pantry_card">
-            <CardBody>
-                <div className="food_card">
+            <Row className="food_card">
+                <Col>
                     <h5>{food.name}</h5>
-
+                </Col>
+                <Col>
                     < button type="submit"
                         onClick={
                             evt => {
@@ -36,8 +35,8 @@ export const AddRecipeFoodForm = ({ food, recipeId, setIngredients }) => {
                         className="btn btn-primary">
                         Add Ingredient
                     </button>
-                </div>
-            </CardBody>
+                </Col>
+            </Row>
         </Card>
     )
 }

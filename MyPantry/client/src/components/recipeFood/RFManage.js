@@ -2,7 +2,7 @@
 
 import React, { useContext, useEffect, useState } from "react";
 import { AddRecipeFoodForm } from "./AddRecipeFoodForm";
-import { Card } from "reactstrap";
+import { Card, Col, Row } from "reactstrap";
 import { FoodContext } from "../../providers/FoodProvider";
 import FoodSearch from "../food/FoodSearch";
 import { useParams } from "react-router-dom";
@@ -32,17 +32,23 @@ export const RFManage = () => {
     } else {
         return (
             <div className="container">
-                <Card>
-                    <div>
-                        <RFList recipeId={id} ingredients={ingredients} setIngredients={setIngredients} />
-                    </div>
-                    <div>
+                <h1>Manage Food</h1>
+                <Row>
+                    <Col>
                         <FoodSearch />
-                        {foods.map((food) => (
-                            <AddRecipeFoodForm key={food.id} food={food} recipeId={id} ingredients={ingredients} setIngredients={setIngredients} />
-                        ))}
-                    </div>
-                </Card>
+                        <div className="food_scroll">
+                            {foods.map((food) => (
+                                <AddRecipeFoodForm key={food.id} food={food} recipeId={id} ingredients={ingredients} setIngredients={setIngredients} />
+                            ))}
+                        </div>
+                    </Col>
+                    <Col>
+                        <h5>Recipe Ingredient(s)</h5>
+                        <div className="food_scroll">
+                            <RFList recipeId={id} ingredients={ingredients} setIngredients={setIngredients} />
+                        </div>
+                    </Col>
+                </Row>
             </div>
         );
     }
