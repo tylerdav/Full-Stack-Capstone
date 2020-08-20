@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Card, CardBody, Button, ModalBody, Modal, ModalHeader } from "reactstrap";
+import { Card, CardBody, Button, ModalBody, Modal, ModalHeader, Row, Col } from "reactstrap";
 import { RecipeFoodContext } from "../../providers/RecipeFoodProvider";
 
 export const RF = ({ recipeFood, setIngredients }) => {
@@ -12,17 +12,24 @@ export const RF = ({ recipeFood, setIngredients }) => {
     return (
         <Card className="m-1 food_pantry_card">
             <CardBody>
-                <div className="food_card">
-                    <h5>{recipeFood.food.name}</h5>
-                    <Button color="danger" className="foodPantryBtn" onClick={toggle}>Delete</Button>
-                </div>
+                <Row className="food_card">
+                    <Col>
+                        <h5>{recipeFood.food.name}</h5>
+                    </Col>
+                    <Button
+                        outline color="danger"
+                        className="add_food_pantry"
+                        onClick={toggle}>
+                        Delete
+                    </Button>
+                </Row>
 
                 <Modal isOpen={modal} toggle={toggle}>
                     <ModalHeader toggle={toggle}>
                         Are you sure you want to delete {recipeFood.food.name}?
                     </ModalHeader>
                     <ModalBody>
-                        <button type="submit"
+                        <Button type="submit"
                             onClick={
                                 evt => {
                                     evt.preventDefault()
@@ -30,18 +37,19 @@ export const RF = ({ recipeFood, setIngredients }) => {
                                         .then(setIngredients)
                                         .then(toggle)
                                 }}
-                            className="btn btn-danger button_margin">
+                            outline color="danger"
+                            className="button_margin">
                             Delete
-                        </button>
-                        <button type="submit"
+                        </Button>
+                        <Button type="submit"
                             onClick={
                                 evt => {
                                     evt.preventDefault()
                                     toggle()
                                 }}
-                            className="btn btn-primary">
+                            outline color="secondary">
                             Cancel
-                        </button>
+                        </Button>
                     </ModalBody>
                 </Modal>
             </CardBody>

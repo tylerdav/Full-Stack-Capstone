@@ -22,7 +22,8 @@ export const FoodPantryList = () => {
                 </Col>
                 <Col>
                     <h5 className="mypantry_title">My Ingredients</h5>
-                    <div className="container">
+                    <br />
+                    <div className="container food_scroll">
                         {foodPantries.map((foodPantry) => (
                             <FoodPantry key={foodPantry.id} foodPantry={foodPantry} />
                         ))}

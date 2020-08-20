@@ -1,7 +1,4 @@
-
-
 import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { Card, CardBody, Button, Row, Col } from "reactstrap";
 import { FoodPantryContext } from "../../providers/FoodPantryProvider";
 
