@@ -49,3 +49,7 @@ min-width: 100px;
     position:absolute;
     bottom:0;
 }
+
+.recipe_edit {
+    min-width: 100%;
+}

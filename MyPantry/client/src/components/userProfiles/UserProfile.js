@@ -29,7 +29,6 @@ const UserProfile = () => {
                     </Col>
                     <Col className="d-flex align-items-center">
                         <h3 class="row justify-content-center align-self-center">User:  {userProfile.displayName}</h3>
-                        {/* <h3>Email:  {userProfile.email}</h3> */}
                     </Col>
                 </Row>
             </Card>

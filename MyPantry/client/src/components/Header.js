@@ -44,7 +44,7 @@ export default function Header() {
                     <Nav className="mr-auto" navbar>
                         {isLoggedIn &&
                             <NavItem>
-                                <NavLink tag={RRNavLink} to={`/profiles`}>Profile</NavLink>
+                                <NavLink tag={RRNavLink} to={`/profiles`}>My Recipes</NavLink>
                             </NavItem>
                         }
                     </Nav>

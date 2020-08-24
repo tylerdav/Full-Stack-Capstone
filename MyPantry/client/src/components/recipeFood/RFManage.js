@@ -2,10 +2,10 @@
 
 import React, { useContext, useEffect, useState } from "react";
 import { AddRecipeFoodForm } from "./AddRecipeFoodForm";
-import { Card, Col, Row } from "reactstrap";
+import { Card, Col, Row, Button } from "reactstrap";
 import { FoodContext } from "../../providers/FoodProvider";
 import FoodSearch from "../food/FoodSearch";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import { RFList } from "./RFList";
 import { RecipeFoodContext } from "../../providers/RecipeFoodProvider";
 import { RecipeContext } from "../../providers/RecipeProvider";
@@ -19,6 +19,8 @@ export const RFManage = () => {
     const { getRecipe } = useContext(RecipeContext);
     const [ingredients, setIngredients] = useState([])
     const userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
+    const history = useHistory();
+
 
 
     useEffect(() => {
@@ -32,6 +34,11 @@ export const RFManage = () => {
     } else {
         return (
             <div className="container">
+                <Link to={`/profiles`}>
+                    <Button outline>
+                        Back to Profile
+                    </Button>
+                </Link>
                 <h1 className="mypantry_title">Manage Food</h1>
                 <br />
                 <Row>

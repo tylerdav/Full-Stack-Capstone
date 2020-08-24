@@ -16,42 +16,19 @@ export const RF = ({ recipeFood, setIngredients }) => {
                     <Col>
                         <h5>{recipeFood.food.name}</h5>
                     </Col>
-                    <Button
+                    <Button type="submit"
+                        onClick={
+                            evt => {
+                                evt.preventDefault()
+                                deleteRecipeFood(recipeFood)
+                                    .then(setIngredients)
+                                    .then(toggle)
+                            }}
                         outline color="danger"
-                        className="add_food_pantry"
-                        onClick={toggle}>
+                        className="button_margin">
                         Delete
-                    </Button>
+                        </Button>
                 </Row>
-
-                <Modal isOpen={modal} toggle={toggle}>
-                    <ModalHeader toggle={toggle}>
-                        Are you sure you want to delete {recipeFood.food.name}?
-                    </ModalHeader>
-                    <ModalBody>
-                        <Button type="submit"
-                            onClick={
-                                evt => {
-                                    evt.preventDefault()
-                                    deleteRecipeFood(recipeFood)
-                                        .then(setIngredients)
-                                        .then(toggle)
-                                }}
-                            outline color="danger"
-                            className="button_margin">
-                            Delete
-                        </Button>
-                        <Button type="submit"
-                            onClick={
-                                evt => {
-                                    evt.preventDefault()
-                                    toggle()
-                                }}
-                            outline color="secondary">
-                            Cancel
-                        </Button>
-                    </ModalBody>
-                </Modal>
             </CardBody>
         </Card>
     );

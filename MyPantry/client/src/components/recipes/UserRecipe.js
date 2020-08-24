@@ -65,8 +65,8 @@ export const UserRecipe = ({ recipe }) => {
 
             <Row className="userRecipeBtns">
                 <Button className="button_margin delete_edit_btns" outline color="secondary" onClick={toggleEdit}>Edit</Button>
-                <Modal isOpen={editModal} toggle={toggleEdit}>
-                    <ModalBody className="RecipeModalBody">
+                <Modal className="EditRecipeModalBody" isOpen={editModal} toggle={toggleEdit}>
+                    <ModalBody>
                         <EditRecipeForm recipe={recipe} toggle={toggleEdit} userProfileId={userProfile.id} />
                     </ModalBody>
                 </Modal>
