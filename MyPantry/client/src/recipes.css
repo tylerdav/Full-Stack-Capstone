@@ -53,3 +53,7 @@ min-width: 100px;
 .recipe_edit {
     min-width: 100%;
 }
+
+.recipe_img {
+    max-height: 170px;
+}

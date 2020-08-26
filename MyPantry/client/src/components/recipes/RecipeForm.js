@@ -60,8 +60,9 @@ export default props => {
                 <fieldset>
                     <div className='form-group'>
                         <label htmlFor='recipeContent'>Instructions: </label>
-                        <input
-                            type='textarea'
+                        <textarea
+                            name="content"
+                            rows="10"
                             id='recipeContent'
                             ref={content}
                             required

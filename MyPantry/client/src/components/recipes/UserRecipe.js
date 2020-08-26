@@ -30,12 +30,8 @@ export const UserRecipe = ({ recipe }) => {
             <br />
             <Row>
                 <Col>
-                    <Row>
-                        <CardImg top src={recipe.imageLocation} />
-                    </Row>
-                    <Row className="recipe_posted_by">
-                        <p>Posted by: {recipe.userProfile.displayName}</p>
-                    </Row>
+                    <CardImg className="recipe_img" top src={recipe.imageLocation} />
+                    <p>Posted by: {recipe.userProfile.displayName}</p>
                 </Col>
                 <Col className="userRecipeItems">
                     <div className="btn_container">
@@ -59,7 +55,7 @@ export const UserRecipe = ({ recipe }) => {
                 <Col>
                     <h5>Instructions:</h5>
                     <p>{recipe.content}</p>
-                    <p className="recipe_category">Category: {recipe.category.name}</p>
+                    <p>Category: {recipe.category.name}</p>
                 </Col>
             </Row>
 
@@ -74,7 +70,7 @@ export const UserRecipe = ({ recipe }) => {
                 <Modal isOpen={modal} toggle={toggle}>
                     <ModalHeader toggle={toggle}>
                         Are you sure you want to delete {recipe.title}?
-                            </ModalHeader>
+                    </ModalHeader>
                     <ModalBody className="RecipeModalBody">
                         <Button
                             type="submit"

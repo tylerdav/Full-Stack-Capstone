@@ -32,6 +32,8 @@ namespace MyPantry.Repositories
             return _context.Recipe
                     .Include(r => r.UserProfile)
                     .Include(r => r.Category)
+                    .Include(r => r.RecipeFood)
+                    .ThenInclude(rf => rf.Food)
                     .FirstOrDefault(r => r.Id == id);
         }
 
@@ -57,8 +59,8 @@ namespace MyPantry.Repositories
 
         public void Delete(int id)
         {
-            var post = GetById(id);
-            _context.Recipe.Remove(post);
+            var recipe = GetById(id);
+            _context.Recipe.Remove(recipe);
             _context.SaveChanges();
         }
 
