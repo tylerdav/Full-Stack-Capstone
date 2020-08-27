@@ -54,7 +54,7 @@ export const UserRecipe = ({ recipe }) => {
                 </Col>
                 <Col>
                     <h5>Instructions:</h5>
-                    <p>{recipe.content}</p>
+                    <p className="p_line_break">{recipe.content}</p>
                     <p>Category: {recipe.category.name}</p>
                 </Col>
             </Row>

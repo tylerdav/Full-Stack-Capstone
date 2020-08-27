@@ -57,3 +57,7 @@ min-width: 100px;
 .recipe_img {
     max-height: 170px;
 }
+
+.p_line_break {
+    line-break: initial;
+}

@@ -23,6 +23,7 @@ namespace MyPantry.Repositories
                 .Include(r => r.UserProfile)
                 .Include(r => r.Category)
                 .Include(r => r.RecipeFood)
+                .OrderBy(r => r.Title)
                 .ToList();
 
         }

@@ -1,10 +1,9 @@
 
-import React, { useContext, useRef, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useContext, useRef, useEffect } from 'react';
+import { Button } from "reactstrap";
+import { useHistory, Link } from 'react-router-dom';
 import { CategoryContext } from "../../providers/CategoryProvider";
 import { RecipeContext } from '../../providers/RecipeProvider';
-import { FoodContext } from '../../providers/FoodProvider';
-import SelectSearch from 'react-select-search';
 
 
 
@@ -40,6 +39,11 @@ export default props => {
 
     return (
         <div className="newRecipeForm">
+            <Link to={`/profiles`}>
+                <Button outline>
+                    Back to Profile
+                </Button>
+            </Link>
             <form className='recipeFormCard'>
                 <h2 className='recipeForm__title'>New Recipe</h2>
                 <fieldset>

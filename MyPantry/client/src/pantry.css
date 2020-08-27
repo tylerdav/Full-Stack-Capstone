@@ -34,11 +34,6 @@ h2 {
     margin-right: 10px;
 }
 
-/* .mypantry_delete_header {
-    background-color: rgb(42, 141, 42);
-    color: white;
-} */
-
 .food_scroll {
     flex: 1;
     overflow-y: scroll;
