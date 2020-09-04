@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Card } from "reactstrap";
 import { RecipeFoodContext } from "../../providers/RecipeFoodProvider";
 import { RF } from "./RF";
 

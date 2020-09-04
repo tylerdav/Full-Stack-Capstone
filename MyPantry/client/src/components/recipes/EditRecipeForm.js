@@ -88,7 +88,7 @@ export const EditRecipeForm = (props) => {
                             type="text"
                             name="imageLocation"
                             className="form-control"
-                            placeholder="Edit recipe image"
+                            placeholder="Edit recipe image (must be a jpeg URL)"
                             defaultValue={props.recipe.imageLocation}
                             onChange={handleControlledInputChange}
                         />

@@ -2,7 +2,7 @@
 
 import React, { useContext, useEffect, useState } from "react";
 import { AddRecipeFoodForm } from "./AddRecipeFoodForm";
-import { Card, Col, Row, Button } from "reactstrap";
+import { Col, Row, Button } from "reactstrap";
 import { FoodContext } from "../../providers/FoodProvider";
 import FoodSearch from "../food/FoodSearch";
 import { useParams, Link, useHistory } from "react-router-dom";
@@ -30,14 +30,18 @@ export const RFManage = () => {
         getRecipe(id).then(setCurrentRecipe);
     }, []);
     if (currentRecipe.userProfileId !== userProfile.id) {
-        return null
+        return (
+            <div className="container">
+                <Link to={`/profiles`}>
+                    <Button outline>Back to Profile</Button>
+                </Link>
+            </div>
+        )
     } else {
         return (
             <div className="container">
                 <Link to={`/profiles`}>
-                    <Button outline>
-                        Back to Profile
-                    </Button>
+                    <Button outline>Back to Profile</Button>
                 </Link>
                 <h1 className="mypantry_title">Manage Food</h1>
                 <br />

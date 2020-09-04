@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Form, Input } from 'reactstrap';
 import { FoodContext } from '../../providers/FoodProvider';
 

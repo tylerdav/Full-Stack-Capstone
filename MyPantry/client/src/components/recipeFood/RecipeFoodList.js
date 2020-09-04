@@ -4,7 +4,7 @@ import { Card } from "reactstrap";
 import { RecipeFoodContext } from "../../providers/RecipeFoodProvider";
 
 export const RecipeFoodList = ({ recipeId }) => {
-    const { recipeFoods, getRecipeFoodByRecipeId } = useContext(RecipeFoodContext);
+    const { getRecipeFoodByRecipeId } = useContext(RecipeFoodContext);
     const [ingredients, setIngredients] = useState([])
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export const RecipeFoodList = ({ recipeId }) => {
     return (
         <Card className="m-4 recipe_ingredients">
             <div className="cards-row">
-                <p>Ingrediants: </p>
+                <h5>Ingrediants: </h5>
                 {ingredients.map((recipeFood) => (
                     <RecipeFood key={recipeFood.id} recipeFood={recipeFood} />
                 ))}

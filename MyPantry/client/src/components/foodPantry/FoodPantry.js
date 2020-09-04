@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Card, CardBody, Button, ModalBody, Modal, ModalHeader, Row, Col } from "reactstrap";
+import { Card, Button, ModalBody, Modal, ModalHeader, Row, Col } from "reactstrap";
 import { FoodPantryContext } from "../../providers/FoodPantryProvider";
 
 export const FoodPantry = ({ foodPantry }) => {

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { FoodPantry } from "./FoodPantry";
-import { Card, Col, Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 import { FoodPantryContext } from "../../providers/FoodPantryProvider";
 import { FoodList } from "../food/FoodList";
 

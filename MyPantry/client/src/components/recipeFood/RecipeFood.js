@@ -1,5 +1,4 @@
 import React from "react";
-import { Card, CardBody } from "reactstrap";
 
 export const RecipeFood = ({ recipeFood }) => {
 
